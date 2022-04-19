@@ -25,22 +25,12 @@
             <Font size="18.0" />
          </font>
       </Button>
-      <Button layoutX="235.0" layoutY="582.0" mnemonicParsing="false" onAction="#searchBike" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Search Bike">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
       <Button layoutX="697.0" layoutY="308.0" mnemonicParsing="false" onAction="#manageInventory" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Manage Inventory">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
       <Button layoutX="467.0" layoutY="308.0" mnemonicParsing="false" onAction="#customerRegistration" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Customer Registration">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </Button>
-      <Button layoutX="235.0" layoutY="308.0" mnemonicParsing="false" onAction="#advanceBooking" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Advance Booking">
          <font>
             <Font size="18.0" />
          </font>
@@ -53,16 +43,6 @@
       <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="2.0" layoutY="182.0" pickOnBounds="true">
          <image>
             <Image url="@yamaha-fzs-fi-bs6.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="235.0" layoutY="182.0" pickOnBounds="true">
-         <image>
-            <Image url="@yamaha-ybr-monthly-installment.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="235.0" layoutY="456.0" pickOnBounds="true">
-         <image>
-            <Image url="@bike.jpg" />
          </image>
       </ImageView>
       <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="698.0" layoutY="182.0" pickOnBounds="true">
@@ -80,12 +60,12 @@
             <Image url="@motorbike.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="467.0" layoutY="582.0" mnemonicParsing="false" onAction="#purchasedBookBike" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Purchased Booked Bike">
+      <Button layoutX="233.0" layoutY="308.0" mnemonicParsing="false" onAction="#purchasedBookBike" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Purchase Bike">
          <font>
             <Font size="18.0" />
          </font>
       </Button>
-      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="467.0" layoutY="456.0" pickOnBounds="true">
+      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="234.0" layoutY="182.0" pickOnBounds="true">
          <image>
             <Image url="@kawasaki-ninja-h2-bike-500x500.png" />
          </image>
