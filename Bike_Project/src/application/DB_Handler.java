@@ -617,4 +617,34 @@ public class DB_Handler
 		
 		return true;
 	}
+	
+	
+	public ResultSet PurchaseBike(String bike_name) throws ClassNotFoundException {
+		ResultSet rs = null;
+		try {
+		
+		Class.forName("com.mysql.cj.jdbc.Driver");
+		Connection con = DriverManager.getConnection(
+				"jdbc:mysql://localhost:3306/bikeshowroom", "root", "shadow123");
+		String sql = "select * from bike";
+		PreparedStatement stat = con.prepareStatement(sql);
+		
+		rs = stat.executeQuery();
+		
+		
+		while (rs.next()) {
+			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
+		}
+		
+		
+		
+	}
+	catch (SQLException e) {
+		e.printStackTrace();
+	}
+	
+	return rs;
+	
+	}
+
 }
