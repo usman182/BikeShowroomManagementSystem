@@ -40,20 +40,7 @@ public class Showroom
 		this.receptionistChair = receptionistChair;
 	}
 
-	public void Remove_Bike(int Bike_Engine, String model) throws ClassNotFoundException 
-	{
-		String bikemodel=model;
-		boolean flag=false;
-		int Engine_ID=Bike_Engine;
-		Salesperson obj=new Salesperson();
-		flag= obj.remove_Bike(bikemodel,Engine_ID);
-		
-		if(flag==true)
-		{
-	      System.out.println("Bike Remove succesfully");		
-		}	
-      			
-	}
+	
 	
 	public void AddBike(int engine_number, String model, String name, String color) throws ClassNotFoundException 
 	{
@@ -195,5 +182,67 @@ public class Showroom
 		return flag=salesperson.EnterItem(bikeengine_number);
     }
 	
+    public String[] bookBike(String bike_name) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		String Name=bike_name;
+		Bike obj=new Bike();
+		rs= obj.bookBike(bike_name);
+		
+	
+		System.out.println("Showroom");
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
+	}
+    
+    public String[] manageInventory(int engine_Number) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		int Name=engine_Number;
+		Bike obj=new Bike();
+		rs= obj.manageInventory(engine_Number);
+		
+	
+		System.out.println("Showroom");
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
+	}
+    
+    public String[] purchaseBookBike(String bike_Name) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		String Name=bike_Name;
+		Bike obj=new Bike();
+		rs= obj.purchaseBookBike(bike_Name);
+		
+	
+		System.out.println("Showroom");
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
+	}
 	
 }

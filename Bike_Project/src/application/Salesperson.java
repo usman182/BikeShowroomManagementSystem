@@ -40,17 +40,7 @@ public class Salesperson
 	}
 
 	
-	public boolean remove_Bike(String bikemodel,int Engine_ID)
-	{
-		int engine_id=Engine_ID;
-		String bike_Model=bikemodel;
-		boolean removeFlag=false;
-		Bike bike_obj=new Bike();
-		removeFlag= bike_obj.Remove_Bike(bike_Model,engine_id);
-		
-		return removeFlag;
-		
-	}
+	
 	
 	public void Find_Bike(String bikeName) 
 	{

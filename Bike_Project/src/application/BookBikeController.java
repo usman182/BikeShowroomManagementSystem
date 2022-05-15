@@ -1,6 +1,7 @@
 package application;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -21,18 +22,24 @@ public class BookBikeController {
 	private Parent root;
 
     @FXML
-    void submitBikeDetails(ActionEvent event) throws IOException {
+    void submitBikeDetails(ActionEvent event) throws IOException, ClassNotFoundException, SQLException {
 
+    	String[] rs = null;
     	FXMLLoader loader = new FXMLLoader(getClass().getResource("BookBikeDetails.fxml"));
     	root = loader.load();
     	
     	BookBikeDetailsController crc = loader.getController();
     	
     	String bike_Name = name.getText();
-    	crc.displayBikeName(bike_Name);
+    	
     	
     	Showroom showroom = new Showroom();
+    	rs = showroom.bookBike(bike_Name);
     	
+    	crc.displayBikeEngineNumber(rs[1]);
+    	crc.displayBikeModel(rs[2]);
+    	crc.displayBikeName(rs[3]);
+    	crc.displayBikeColor(rs[4]);
     	
     	stage = (Stage)((Node)event.getSource()).getScene().getWindow();
     	scene = new Scene(root);

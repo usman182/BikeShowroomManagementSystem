@@ -84,17 +84,6 @@ public class Bike
 	}
 	
 	
-	public boolean Remove_Bike(String bike_Model,int engine_id) 
-	{
-        boolean InventoryFlag=false;
-		String model=bike_Model;
-		int Engine_ID=engine_id;
-		Inventory bike_remove_obj=new Inventory();
-		InventoryFlag= bike_remove_obj.Bike_Remove(model,Engine_ID);
-		
-		return InventoryFlag;
-		
-	}
 	
 	public String[] Find_Bike(int engine_Number,String bike_name) throws ClassNotFoundException, SQLException 
 	{
@@ -108,7 +97,7 @@ public class Bike
 		Bike_Catalog bike_obj=new Bike_Catalog();
 		rs= bike_obj.Find_Bike(engine_Number,bike_name);
 		
-		System.out.println("Bike: ");
+		
 		for (int i=1; i<=4; i++) {
 			System.out.print(rs[i] + " ");
 		}
@@ -129,6 +118,70 @@ public class Bike
 		String[] flag = null;
 		Inventory inventory = new Inventory();
 		return flag=inventory.getBike_Details(bikeengine_number);
+	}
+	
+	
+	public String[] bookBike(String bike_name) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		String Name=bike_name;
+		DB_Handler obj=new DB_Handler();
+		rs= obj.bookBike(bike_name);
+		
+	
+		
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
+	}
+	
+	public String[] manageInventory(int engine_Number) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		int Name=engine_Number;
+		DB_Handler obj=new DB_Handler();
+		rs= obj.manageInventory(engine_Number);
+		
+	
+		System.out.println("Showroom");
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
+	}
+	
+	public String[] purchaseBookBike(String bike_Name) throws ClassNotFoundException, SQLException 
+	{
+		String[] rs = null;
+		//int Engine_Number=engine_Number;
+		boolean flag=false;
+		String Name=bike_Name;
+		DB_Handler obj=new DB_Handler();
+		rs= obj.purchaseBookBike(bike_Name);
+		
+	
+		System.out.println("Showroom");
+		for (int i=1; i<=4; i++) {
+			System.out.print(rs[i] + " ");
+		}
+		System.out.println();
+		
+		
+		return rs;
+                
 	}
 	
 }

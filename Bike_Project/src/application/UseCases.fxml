@@ -50,7 +50,7 @@
             <Image url="@motorcycle-parts-inventory-software-motorcycles.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="2.0" layoutY="456.0" pickOnBounds="true">
+      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="349.0" layoutY="456.0" pickOnBounds="true">
          <image>
             <Image url="@ezgif.com-gif-maker.jpg" />
          </image>
@@ -76,6 +76,16 @@
          </font>
       </Button>
       <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="697.0" layoutY="456.0" pickOnBounds="true">
+         <image>
+            <Image url="@1118136.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="349.0" layoutY="582.0" mnemonicParsing="false" onAction="#manageCustomerBill" prefHeight="43.0" prefWidth="210.0" style="-fx-background-color: blue;" text="Manage Customer Bill">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Button>
+      <ImageView fitHeight="126.0" fitWidth="210.0" layoutX="2.0" layoutY="456.0" pickOnBounds="true">
          <image>
             <Image url="@1118136.jpg" />
          </image>

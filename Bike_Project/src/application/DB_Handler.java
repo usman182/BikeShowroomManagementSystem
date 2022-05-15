@@ -17,9 +17,7 @@ public class DB_Handler
 	public String[] getEmp(int ID) throws ClassNotFoundException 
 	{
 		
-		FileHandling obj=new FileHandling();
-	    String fname1="Employee.txt";
-	    obj.Create_File(fname1);
+		
 		
 			ResultSet rs = null;
 			String[] arr = new String[5];
@@ -35,7 +33,7 @@ public class DB_Handler
 			statement.execute();
 			
 			Statement statement3 = con.createStatement();
-			ResultSet rs2 = statement3.executeQuery(sql);
+			rs = statement3.executeQuery(sql);
 			
 			String emp_name=rs.getString(1);
 			String emp_id=rs.getString(2);
@@ -44,47 +42,13 @@ public class DB_Handler
 			String emp_cnic=rs.getString(5);
 			//start of writing
 			
-				   BufferedWriter bw = null;
-	       	       PrintWriter pw = null;
-	        	   FileWriter fw = null; 	
-	        	   
-	        	  synchronized (this) {
-	        	   try { 
-	         		   
-	         		   fw = new FileWriter(fname1, true); 
-	         		   bw = new BufferedWriter(fw);
-	         		   pw = new PrintWriter(bw); 
-	         		   pw.println(emp_name+" "+emp_id+" "+emp_address+" "+emp_phone_number+" "+emp_cnic+" "); 
-	         		   
-	         		   
-	         		   pw.flush(); 
-	         		   
-	         	   }
+				   
 	         	   
-	         	   catch (IOException io) 
-	     		   {
-	     			   
-	     		   }
+	         	  
 	         	   
-	         	   finally 
-	         	   {
-	         		   try 
-	         		   {
-	         			   bw.close();
-	        			   fw.close(); 
-	         			   pw.close();
-	         			   
-	         			   }
-	         		   
-	         		   catch (IOException io) 
-	         		   {
-	         			   
-	         		   }
-	         		   
-	         		   
-	         	   }
+	         	   
 			
-	        	  }
+	        	  
 			while (rs.next()) {
 				for (int i=1; i<5; i++) {
 					arr[i] = rs.getString(i);
@@ -113,9 +77,7 @@ public class DB_Handler
 	
 	public ResultSet ChangeDetail(int id, String name, String address, String phoneNumber, String cnic) throws ClassNotFoundException    //ChangeDetail(get_id);
 	{
-		ResultSet rs = null;
-		String fname1="Employee.txt";
-		
+		ResultSet rs2 = null;
 		try {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -132,7 +94,8 @@ public class DB_Handler
 		statement2.execute();
 		
 		Statement statement3 = con.createStatement();
-		ResultSet rs2 = statement3.executeQuery(sql2);
+		
+		rs2 = statement3.executeQuery(sql2);
 		
 		String emp_name=rs2.getString(1);
 		String emp_id=rs2.getString(2);
@@ -140,65 +103,24 @@ public class DB_Handler
 		String emp_phone_number=rs2.getString(4);
 		String emp_cnic=rs2.getString(5); 
 		
-		BufferedWriter bw = null; 
-	    PrintWriter pw = null;
- 	    FileWriter fw = null; 	
- 	   
- 	   synchronized (this) {
- 	   try { 
-  		   
-  		   fw = new FileWriter(fname1, true); 
-  		   bw = new BufferedWriter(fw);
-  		   pw = new PrintWriter(bw); 
-  		   pw.println(emp_name+" "+emp_id+" "+emp_address+" "+emp_phone_number+" "+emp_cnic+" "); 
-  		   
-  		   
-  		   pw.flush(); 
-  		   
-  	   }
-  	   
-  	   catch (IOException io) 
-		   {
-			   
-		   }
-  	   
-  	   finally 
-  	   {
-  		   try 
-  		   {
-  			   bw.close();
- 			   fw.close(); 
-  			   pw.close();
-  			   
-  			   }
-  		   
-  		   catch (IOException io) 
-  		   {
-  			   
-  		   }
-  		   
-  		   
-  	   }
 		
- 	   }
-	
-	//end of writing
+
 		
-		return rs2;
+		
 		
 		
 	}
 	catch (SQLException e) {
 		e.printStackTrace();
 	}
-		return rs;
+		//return rs;
+		return rs2;
 		
 	}
 	
 	public ResultSet SaveEmp(int id, String name, String address, String phoneNumber, String cnic) throws ClassNotFoundException {
 		
-		String fname1="Employee.txt";
-		ResultSet rs = null;
+		ResultSet rs2 = null;
 		try {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -215,7 +137,8 @@ public class DB_Handler
 		statement2.execute();
 		
 		Statement statement3 = con.createStatement();
-		ResultSet rs2 = statement3.executeQuery(sql2);
+		
+		rs2 = statement3.executeQuery(sql2);
 		
 		String emp_name=rs2.getString(1);
 		String emp_id=rs2.getString(2);
@@ -224,63 +147,28 @@ public class DB_Handler
 		String emp_cnic=rs2.getString(5);  
 		//
 		
-		BufferedWriter bw = null; 
-	    PrintWriter pw = null;
- 	    FileWriter fw = null; 	
- 	   
- 	   synchronized (this) {
- 	   try { 
-  		   
-  		   fw = new FileWriter(fname1, true); 
-  		   bw = new BufferedWriter(fw);
-  		   pw = new PrintWriter(bw); 
-  		   pw.println(emp_name+" "+emp_id+" "+emp_address+" "+emp_phone_number+" "+emp_cnic+" "); 
-  		   
-  		   
-  		   pw.flush(); 
-  		   
-  	   }
-  	   
-  	   catch (IOException io) 
-		   {
-			   
-		   }
-  	   
-  	   finally 
-  	   {
-  		   try 
-  		   {
-  			   bw.close();
- 			   fw.close(); 
-  			   pw.close();
-  			   
-  			   }
-  		   
-  		   catch (IOException io) 
-  		   {
-  			   
-  		   }
-  		   
-  		   
-  	   }
 		
- 	   }
-	
-	//end of writing
+  	   
+  	   
+  	   
+  	  
+  		   
+  		
 		
 		return rs2;
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return rs;
+		//return rs;
+		return rs2;
+		
 		
 	}
 	
 	public boolean removeEmp(int Id) throws ClassNotFoundException 
 	{
-		ResultSet rs = null;
-		String fname1="Employee.txt";
+		
 		try {
 		
 		Class.forName("com.mysql.cj.jdbc.Driver");
@@ -292,60 +180,14 @@ public class DB_Handler
 		statement.setInt(1, Id);
 		statement.execute();
 		
-		//
+		/*
 		String emp_name=rs.getString(1);
 		String emp_id=rs.getString(2);
 		String emp_address=rs.getString(3);
 		String emp_phone_number=rs.getString(4);
 		String emp_cnic=rs.getString(5);  
-		
-		//
-		
-		BufferedWriter bw = null; 
-	    PrintWriter pw = null;
- 	    FileWriter fw = null; 	
+		*/
  	   
- 	   synchronized (this) {
- 	   try { 
-  		   
-  		   fw = new FileWriter(fname1, true); 
-  		   bw = new BufferedWriter(fw);
-  		   pw = new PrintWriter(bw); 
-  		   pw.println(emp_name+" "+emp_id+" "+emp_address+" "+emp_phone_number+" "+emp_cnic+" "); 
-  		   
-  		   
-  		   pw.flush(); 
-  		   
-  	   }
-  	   
-  	   catch (IOException io) 
-		   {
-			   
-		   }
-  	   
-  	   finally 
-  	   {
-  		   try 
-  		   {
-  			   bw.close();
- 			   fw.close(); 
-  			   pw.close();
-  			   
-  			   }
-  		   
-  		   catch (IOException io) 
-  		   {
-  			   
-  		   }
-  		   
-  		   
-  	   }
-		
- 	   }
-	
-	//end of writing
-		
-		
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -383,14 +225,11 @@ public class DB_Handler
 		
 	}
 	
-	public void EnterCustomerDetails(String details) {
-		
-	}
+	
 	
 	public String[] Find_Bike(int engine_Number,String bike_name) throws ClassNotFoundException
 	{
 		ResultSet rs = null;
-		String fname1="Bike.txt";
 		String[] arr = new String[5];
 			try {
 			
@@ -408,51 +247,9 @@ public class DB_Handler
 			String engine_number=rs.getString(1);
 			String bike_name1=rs.getString(2);
 			
-			BufferedWriter bw = null; 
-		    PrintWriter pw = null;
-	 	    FileWriter fw = null; 	
-	 	   
-	 	   synchronized (this) {
-	 	   try { 
-	  		   
-	  		   fw = new FileWriter(fname1, true); 
-	  		   bw = new BufferedWriter(fw);
-	  		   pw = new PrintWriter(bw); 
-	  		   pw.println(engine_number+" "+bike_name1+" "); 
-	  		   
-	  		   
-	  		   pw.flush(); 
-	  		   
-	  	   }
-	  	   
-	  	   catch (IOException io) 
-			   {
-				   
-			   }
-	  	   
-	  	   finally 
-	  	   {
-	  		   try 
-	  		   {
-	  			   bw.close();
-	 			   fw.close(); 
-	  			   pw.close();
-	  			   
-	  			   }
-	  		   
-	  		   catch (IOException io) 
-	  		   {
-	  			   
-	  		   }
-	  		   
-	  		   
-	  	   }
-			
-	 	   }
 		
-		//end of writing
 			
-			System.out.println("hello");
+			
 			while (rs.next()) {
 				for (int i=1; i<=4; i++) {
 					arr[i] = rs.getString(i);
@@ -461,14 +258,6 @@ public class DB_Handler
 				//System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
 			}
 			System.out.println();
-			
-			//arr[i] = rs.getInt(2);
-			//System.out.println(arr[i] + " ");
-			//System.out.println(rs.getString(2) + " ");
-			/*for (int i=2; i<=4; i++) {
-				arr[i] = rs.getString(i);
-				System.out.println(arr[i] + " ");
-			}*/
 			
 			
 			
@@ -483,16 +272,7 @@ public class DB_Handler
 		
 	}
 	
-	public boolean remove_Bike(String bike_model,int Bike_EngineID)
-	{
-		boolean RemoveFlag=false;
-		//queries
-		
-		return RemoveFlag; 
-		
-	}
 	
-	//create_Bike(BikeName,Engine_ID,bike_Model,BikePrice);
 	
 	public boolean create_Bike(int engine_number, String model, String name, String color) throws ClassNotFoundException
 	{
@@ -612,39 +392,158 @@ public class DB_Handler
 		String sql2 = "UPDATE FROM employee WHERE employee_id=?";
 		PreparedStatement statement2 = con.prepareStatement(sql2);
 		statement2.setString(1, rs[1]);
-		statement2.execute();
+		statement2.executeQuery();
+		//statement2.execute();
 		
 		
 		return true;
 	}
 	
-	
-	public ResultSet PurchaseBike(String bike_name) throws ClassNotFoundException {
-		ResultSet rs = null;
-		try {
-		
-		Class.forName("com.mysql.cj.jdbc.Driver");
-		Connection con = DriverManager.getConnection(
-				"jdbc:mysql://localhost:3306/bikeshowroom", "root", "shadow123");
-		String sql = "select * from bike";
-		PreparedStatement stat = con.prepareStatement(sql);
-		
-		rs = stat.executeQuery();
-		
-		
-		while (rs.next()) {
-			System.out.println(rs.getInt(1) + " " + rs.getString(2) + " " + rs.getString(3) + " " + rs.getString(4));
-		}
-		
-		
+	public String[] bookBike(String bike_name) throws ClassNotFoundException, SQLException 
+	{
+			ResultSet rs = null;
+			String[] arr = new String[5];
+				try {
+				
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/bikeshowroom", "root", "shadow123");
+				String sql = null;
+				if (bike_name.equalsIgnoreCase("Honda")) 
+				{
+					sql = "select * from bike where name='Honda'";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("United")) 
+				{
+					sql = "select * from bike where name='United'";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("SuperStar")) 
+				{
+					sql = "select * from bike where name='SuperStar'";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("Speed")) 
+				{
+					sql = "select * from bike where name='Speed'";
+				}
+				
+				Statement stat = con.createStatement();
+				rs = stat.executeQuery(sql);
+				
+				
+				while (rs.next()) {
+					for (int i=1; i<=4; i++) {
+						arr[i] = rs.getString(i);
+						System.out.print(arr[i] + " ");
+					}
+				}
+				
+				
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+				
+				return arr;
+			
+			
+			
 		
 	}
-	catch (SQLException e) {
-		e.printStackTrace();
+	
+	public String[] manageInventory(int engine_Number) throws ClassNotFoundException, SQLException 
+	{
+			ResultSet rs = null;
+			String[] arr = new String[5];
+				try {
+				
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/bikeshowroom", "root", "shadow123");
+				String sql = null;
+				sql = "select * from bike where engine_number=?";
+				PreparedStatement st = con.prepareStatement(sql);
+				st.setInt(1, engine_Number);
+				
+				rs = st.executeQuery();
+				
+				
+				while (rs.next()) {
+					for (int i=1; i<=4; i++) {
+						arr[i] = rs.getString(i);
+						System.out.print(arr[i] + " ");
+					}
+				}
+				
+				
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+				
+				return arr;
+			
+			
+			
+		
 	}
 	
-	return rs;
-	
+	public String[] purchaseBookBike(String bike_name) throws ClassNotFoundException, SQLException 
+	{
+			ResultSet rs = null;
+			String[] arr = new String[6];
+				try {
+				
+				Class.forName("com.mysql.cj.jdbc.Driver");
+				Connection con = DriverManager.getConnection(
+						"jdbc:mysql://localhost:3306/bikeshowroom", "root", "shadow123");
+				String sql = null;
+				if (bike_name.equalsIgnoreCase("Honda")) 
+				{
+					sql = "select * from bike where name='Honda'";
+					arr[5] = "30,000 PKR/-";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("United")) 
+				{
+					sql = "select * from bike where name='United'";
+					arr[5] = "40,000 PKR/-";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("SuperStar")) 
+				{
+					sql = "select * from bike where name='SuperStar'";
+					arr[5] = "50,000 PKR/-";
+				}
+				
+				else if (bike_name.equalsIgnoreCase("Speed")) 
+				{
+					sql = "select * from bike where name='Speed'";
+					arr[5] = "60,000 PKR/-";
+				}
+				
+				Statement stat = con.createStatement();
+				rs = stat.executeQuery(sql);
+				
+				
+				while (rs.next()) {
+					for (int i=1; i<=4; i++) {
+						arr[i] = rs.getString(i);
+						System.out.print(arr[i] + " ");
+					}
+				}
+				
+				
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+			}
+				
+				return arr;
 	}
 
-}
+}	
+	
+	

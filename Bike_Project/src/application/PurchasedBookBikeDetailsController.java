@@ -32,8 +32,8 @@ public class PurchasedBookBikeDetailsController {
     @FXML
     private Label payment;
 
-    public void displayBikeEngineNumber(int engine_Number) {
-		engineNumber.setText(String.valueOf(engine_Number));
+    public void displayBikeEngineNumber(String rs) {
+		engineNumber.setText(String.valueOf(rs));
     }
     
     public void displayBikeModel(String bike_Model) {

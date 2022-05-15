@@ -29,8 +29,8 @@ public class BookBikeDetailsController {
     @FXML
     private Label name;
 
-    public void displayBikeEngineNumber(int engine_Number) {
-		engineNumber.setText(String.valueOf(engine_Number));
+    public void displayBikeEngineNumber(String rs) {
+		engineNumber.setText(String.valueOf(rs));
     }
     
     public void displayBikeModel(String bike_Model) {
@@ -38,7 +38,7 @@ public class BookBikeDetailsController {
     }
     
     public void displayBikeName(String BikeName) {
-    	model.setText(BikeName);
+    	name.setText(BikeName);
     }
     
     public void displayBikeColor(String BikeColor) {

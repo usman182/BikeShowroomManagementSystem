@@ -26,7 +26,7 @@
             <Font name="Agency FB" size="20.0" />
          </font>
       </Label>
-      <TextField fx:id="name" layoutX="209.0" layoutY="149.0" prefHeight="37.0" prefWidth="663.0" promptText="Enter bike name to search in inventory" style="-fx-background-color: grey;">
+      <TextField fx:id="engineNumber" layoutX="209.0" layoutY="149.0" prefHeight="37.0" prefWidth="663.0" promptText="Enter bike engine number to search in inventory" style="-fx-background-color: grey;">
          <font>
             <Font name="Agency FB" size="20.0" />
          </font>

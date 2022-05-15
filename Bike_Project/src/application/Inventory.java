@@ -10,17 +10,7 @@ public class Inventory
 		
 	}
 	
-	public boolean Bike_Remove(String model,int Engine_ID) 
-	{
-        boolean DBFlag=false;
-		String bike_model=model;
-		int Bike_EngineID=Engine_ID;
-		DB_Handler bike_remove_obj=new DB_Handler();
-		DBFlag= bike_remove_obj.remove_Bike(bike_model,Bike_EngineID);
-		
-		return DBFlag;
-		
-	}
+	
 	
 	//Add_Bike(BikeName,Engine_ID,bike_Model,BikePrice);
 	
